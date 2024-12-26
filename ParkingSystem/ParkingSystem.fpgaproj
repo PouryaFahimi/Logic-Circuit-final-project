@@ -13,6 +13,7 @@
   "Toolchain": "Yosys",
   "TestBenches": [
     "Capacity_tb.v",
-    "Location_tb.v"
+    "Location_tb.v",
+    "FSM_tb.v"
   ]
 }

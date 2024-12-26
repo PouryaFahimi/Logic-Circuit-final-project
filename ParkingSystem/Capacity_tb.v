@@ -35,7 +35,6 @@ module Capacity_tb;
     in = 4'b1110;
     #100;
 
-    $finish;
   end
 
 endmodule

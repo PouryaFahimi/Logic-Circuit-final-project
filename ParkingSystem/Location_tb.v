@@ -38,7 +38,6 @@ module Location_tb;
     in = 4'b0111;
     #100;
 
-    $finish;
   end
 
 endmodule
