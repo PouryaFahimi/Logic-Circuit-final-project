@@ -1,0 +1,102 @@
+$date
+	Thu Dec 26 15:38:31 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Capacity_tb $end
+$var wire 3 ! out [2:0] $end
+$var reg 4 " in [3:0] $end
+$scope module UUT $end
+$var wire 1 # and_out1 $end
+$var wire 1 $ and_out2 $end
+$var wire 4 % in [3:0] $end
+$var wire 1 & not_in0 $end
+$var wire 1 ' not_in1 $end
+$var wire 1 ( not_in2 $end
+$var wire 1 ) not_in3 $end
+$var wire 1 * or1 $end
+$var wire 1 + or2 $end
+$var wire 1 , or3 $end
+$var wire 1 - or4 $end
+$var wire 1 . or5 $end
+$var wire 1 / xor_out1 $end
+$var wire 3 0 out [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1 0
+0/
+1.
+1-
+1,
+0+
+1*
+1)
+1(
+1'
+0&
+b1 %
+0$
+0#
+b1 "
+b1 !
+$end
+#100000
+1&
+0,
+0-
+0.
+b0 !
+b0 0
+b0 "
+b0 %
+#200000
+b1 !
+b1 0
+0(
+1+
+1,
+1.
+1/
+b100 "
+b100 %
+#300000
+1#
+0'
+1(
+0)
+1-
+b10 !
+b10 0
+b1010 "
+b1010 %
+#400000
+0#
+0*
+0&
+0(
+1$
+0/
+b100 !
+b100 0
+b1111 "
+b1111 %
+#500000
+1#
+1*
+1&
+0$
+b11 !
+b11 0
+b1110 "
+b1110 %
+#600000

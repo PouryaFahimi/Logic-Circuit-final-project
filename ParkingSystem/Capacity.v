@@ -1,4 +1,4 @@
-module count_zero_bits (
+module Capacity (
     input  [3:0] in,
     output [2:0] out
 );
