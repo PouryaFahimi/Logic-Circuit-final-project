@@ -12,6 +12,7 @@
   "Loader": "OpenFpgaLoader",
   "Toolchain": "Yosys",
   "TestBenches": [
-    "Capacity_tb.v"
+    "Capacity_tb.v",
+    "Location_tb.v"
   ]
 }
