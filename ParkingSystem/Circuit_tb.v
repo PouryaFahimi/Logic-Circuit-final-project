@@ -1,4 +1,4 @@
-module ReadWrite_tb;
+module Circuit_tb;
 
   reg clk;
   reg entry;
@@ -27,8 +27,8 @@ module ReadWrite_tb;
   );
 
   initial begin
-    $dumpfile("ReadWrite_tb.vcd");
-    $dumpvars(0, ReadWrite_tb);
+    $dumpfile("Circuit_tb.vcd");
+    $dumpvars(0, Circuit_tb);
     entry = 0;
     exit = 0;
     switch = 2'b00;
@@ -45,7 +45,7 @@ module ReadWrite_tb;
       status = $fscanf(file, "%1b %1b %1b %1b\n", entry, exit, switch[1], switch[0]);
       if (status == 4) begin
         #100;
-        $fwrite(file_out, "%b [%d,%d] %s%s\n", state, capacity, best_place,
+        $fwrite(file_out, "%b [%d,%d] %0s%0s\n", state, capacity, best_place,
                 open ? "Open Door " : "", full ? "Full" : "");
 
 

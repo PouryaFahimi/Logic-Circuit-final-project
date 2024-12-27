@@ -15,6 +15,9 @@ module Circuit (
   and (parking_slots[1], 1'b1, state[1]);
   and (parking_slots[2], 1'b1, state[2]);
   and (parking_slots[3], 1'b1, state[3]);
+  wire full_temp;
+  and (full_temp, state[0], state[1], state[2], state[3]);
+  and #50 (full_light, full_temp, entry_sensor, ~exit_sensor);
 
   FSM fsm (
       .clk(clk),
@@ -24,21 +27,13 @@ module Circuit (
   );
 
   Capacity cap (
-      .in(state),
+      .in (state),
       .out(capacity)
   );
 
   Location loc (
       .in(state),
       .encoded(best_place)
-  );
-
-  Full_Light full (
-      .fsm_state(state),
-      .enter_sensor(entry_sensor),
-      .exit_sensor(exit_sensor),
-      .clk(clk),
-      .pulse(full_light)
   );
 
 endmodule

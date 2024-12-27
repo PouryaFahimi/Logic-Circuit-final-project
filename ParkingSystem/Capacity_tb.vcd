@@ -1,5 +1,5 @@
 $date
-	Fri Dec 27 23:24:50 2024
+	Fri Dec 27 23:52:52 2024
 $end
 $version
 	Icarus Verilog
@@ -76,43 +76,36 @@ $scope module UUT $end
 $var wire 1 D clk $end
 $var wire 1 E entry_sensor $end
 $var wire 1 F exit_sensor $end
-$var wire 2 K switch [1:0] $end
-$var wire 4 L state [3:0] $end
-$var wire 4 M parking_slots [3:0] $end
 $var wire 1 A full_light $end
+$var wire 1 K full_temp $end
+$var wire 2 L switch [1:0] $end
+$var wire 4 M state [3:0] $end
+$var wire 4 N parking_slots [3:0] $end
 $var wire 1 @ door_open_light $end
-$var wire 3 N capacity [2:0] $end
-$var wire 3 O best_place [2:0] $end
+$var wire 3 O capacity [2:0] $end
+$var wire 3 P best_place [2:0] $end
 $scope module cap $end
-$var wire 4 P in [3:0] $end
-$var reg 3 Q out [2:0] $end
-$var integer 32 R i [31:0] $end
+$var wire 4 Q in [3:0] $end
+$var reg 3 R out [2:0] $end
+$var integer 32 S i [31:0] $end
 $upscope $end
 $scope module fsm $end
 $var wire 1 D clk $end
-$var wire 4 S in [3:0] $end
+$var wire 4 T in [3:0] $end
 $var reg 1 @ door_open_pulse $end
-$var reg 4 T next_state [3:0] $end
-$var reg 4 U state [3:0] $end
-$upscope $end
-$scope module full $end
-$var wire 1 D clk $end
-$var wire 1 E enter_sensor $end
-$var wire 1 F exit_sensor $end
-$var wire 4 V fsm_state [3:0] $end
-$var reg 1 W enter_sensor_prev $end
-$var reg 1 A pulse $end
+$var reg 4 U next_state [3:0] $end
+$var reg 4 V state [3:0] $end
 $upscope $end
 $scope module loc $end
-$var wire 1 X and0 $end
-$var wire 1 Y and1 $end
-$var wire 1 Z and2 $end
-$var wire 4 [ in [3:0] $end
-$var wire 1 \ not_in0 $end
-$var wire 1 ] not_in1 $end
-$var wire 1 ^ not_in2 $end
-$var wire 1 _ not_in3 $end
-$var wire 3 ` encoded [2:0] $end
+$var wire 1 W and0 $end
+$var wire 1 X and1 $end
+$var wire 1 Y and2 $end
+$var wire 4 Z in [3:0] $end
+$var wire 1 [ not_in0 $end
+$var wire 1 \ not_in1 $end
+$var wire 1 ] not_in2 $end
+$var wire 1 ^ not_in3 $end
+$var wire 3 _ encoded [2:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -122,28 +115,27 @@ $dumpall
 $end
 #0
 $dumpvars
-b0 `
-1_
+b0 _
 1^
 1]
 1\
-b0 [
-0Z
+1[
+b0 Z
 0Y
 0X
 0W
 b0 V
-b0 U
-bx T
-b0 S
+bx U
+b0 T
+b100 S
 b100 R
-b100 Q
+b0 Q
 b0 P
-b0 O
-b100 N
+b100 O
+b0 N
 b0 M
 b0 L
-b0 K
+0K
 b100 J
 b10000000000000000000000000000100 I
 b10000000000000000000000000000011 H
@@ -153,7 +145,7 @@ b0 G
 0D
 b0 C
 b100 B
-0A
+xA
 0@
 b0 ?
 b1 >
@@ -188,8 +180,9 @@ b1 "
 b11 !
 $end
 #50000
-b0 T
+b0 U
 b0 +
+0A
 1D
 1.
 1(
@@ -204,7 +197,7 @@ b100 $
 0D
 0.
 0(
-b1000 S
+b1000 T
 1E
 b0 5
 b0 9
@@ -217,28 +210,26 @@ b0 "
 b0 #
 #150000
 b1 C
-b1 O
-b1 `
-0\
-1X
-b1 ?
-b1 M
-b100 R
-b11 B
-b11 N
-b11 Q
-1W
-b1 L
 b1 P
-b1 U
+b1 _
+0[
+1W
+b1 ?
+b1 N
+b100 S
+b11 B
+b11 O
+b11 R
+b1 M
+b1 Q
 b1 V
-b1 [
+b1 Z
 1@
 13
 b1 &
 b1 ,
 1'
-b1 T
+b1 U
 b1 +
 1D
 1.
@@ -251,9 +242,9 @@ b11 $
 0D
 0.
 0(
-b1001 S
+b1001 T
 b1 G
-b1 K
+b1 L
 b100 5
 b100 9
 b1111 1
@@ -263,26 +254,25 @@ b100 *
 b100 "
 b100 #
 #250000
-0X
+0W
 b10 C
-b10 O
-b10 `
-0]
-1Y
+b10 P
+b10 _
+0\
+1X
 b11 ?
-b11 M
-b100 R
+b11 N
+b100 S
 b10 B
-b10 N
-b10 Q
-b11 L
-b11 P
-b11 U
+b10 O
+b10 R
+b11 M
+b11 Q
 b11 V
-b11 [
+b11 Z
 b0 &
 b0 ,
-b11 T
+b11 U
 b0 +
 1D
 1.
@@ -297,7 +287,7 @@ b10 $
 0D
 0.
 0(
-b1 S
+b1 T
 0E
 b1010 5
 b1010 9
@@ -308,7 +298,6 @@ b1000 *
 b1010 "
 b1010 #
 #350000
-0W
 0@
 b1 &
 b1 ,
@@ -329,8 +318,8 @@ b0 $
 0.
 0(
 b11 G
-b11 K
-b1011 S
+b11 L
+b1011 T
 1E
 b1111 5
 b1111 9
@@ -339,28 +328,26 @@ b1111 2
 b1111 "
 b1111 #
 #450000
-0Y
+0X
 b11 C
-b11 O
-b11 `
-0^
-1Z
+b11 P
+b11 _
+0]
+1Y
 b111 ?
-b111 M
-b100 R
+b111 N
+b100 S
 b1 B
-b1 N
-b1 Q
-b111 L
-b111 P
-b111 U
+b1 O
+b1 R
+b111 M
+b111 Q
 b111 V
-b111 [
+b111 Z
 1@
-1W
 b11 &
 b11 ,
-b111 T
+b111 U
 b11 +
 1D
 1.
@@ -376,9 +363,9 @@ b100 %
 0.
 0(
 b1 G
-b1 K
+b1 L
 1F
-b101 S
+b101 T
 0E
 b1110 5
 b1110 9
@@ -386,28 +373,26 @@ b1110 9
 b1110 "
 b1110 #
 #550000
-1X
+1W
 b1 C
-b1 O
-b1 `
-1]
-0Z
+b1 P
+b1 _
+1\
+0Y
 b101 ?
-b101 M
-b100 R
+b101 N
+b100 S
 b10 B
-b10 N
-b10 Q
-0W
-b101 L
-b101 P
-b101 U
+b10 O
+b10 R
+b101 M
+b101 Q
 b101 V
-b101 [
+b101 Z
 03
 b111 &
 b111 ,
-b101 T
+b101 U
 b111 +
 1D
 1.
@@ -422,37 +407,35 @@ b11 >
 0.
 0(
 b0 G
-b0 K
+b0 L
 0F
-b1000 S
+b1000 T
 1E
 b111 5
 b111 9
 1/
 #650000
-0X
+0W
 b11 C
-b11 O
-b11 `
-0]
-1Z
+b11 P
+b11 _
+0\
+1Y
 b111 ?
-b111 M
-b100 R
+b111 N
+b100 S
 b1 B
-b1 N
-b1 Q
-b111 L
-b111 P
-b111 U
+b1 O
+b1 R
+b111 M
+b111 Q
 b111 V
-b111 [
-1W
+b111 Z
 13
 1-
 b1111 &
 b1111 ,
-b111 T
+b111 U
 b1111 +
 1D
 1.
@@ -462,31 +445,29 @@ b1111 +
 0.
 0(
 1F
-b100 S
+b100 T
 0E
 b1100 1
 b1100 2
 #750000
 b0 C
-b0 O
-b0 `
-1\
-0Z
+b0 P
+b0 _
+1[
+0Y
 b110 ?
-b110 M
-b100 R
+b110 N
+b100 S
 b10 B
-b10 N
-b10 Q
-0W
-b110 L
-b110 P
-b110 U
+b10 O
+b10 R
+b110 M
+b110 Q
 b110 V
-b110 [
+b110 Z
 0-
 0'
-b110 T
+b110 U
 1D
 1.
 1(
@@ -508,35 +489,33 @@ b1101 2
 0.
 0(
 b1 G
-b1 K
+b1 L
 0F
-b1001 S
+b1001 T
 1E
 1/
 b1111 1
 b1111 2
 #950000
 b11 C
-b11 O
-b11 `
-0\
-1Z
+b11 P
+b11 _
+0[
+1Y
 b111 ?
-b111 M
-b100 R
+b111 N
+b100 S
 b1 B
-b1 N
-b1 Q
-1W
-b111 L
-b111 P
-b111 U
+b1 O
+b1 R
+b111 M
+b111 Q
 b111 V
-b111 [
+b111 Z
 1@
 13
 1-
-b111 T
+b111 U
 1D
 1.
 1(
@@ -544,38 +523,39 @@ b111 T
 0D
 0.
 0(
-b1000 S
+b1000 T
 b0 G
-b0 K
+b0 L
 #1050000
-0Z
-0_
+0Y
+0^
 b101 C
-b101 O
-b101 `
+b101 P
+b101 _
+1K
 b1111 ?
-b1111 M
-b100 R
+b1111 N
+b100 S
 b0 B
-b0 N
-b0 Q
-b1111 L
-b1111 P
-b1111 U
+b0 O
+b0 R
+b1111 M
+b1111 Q
 b1111 V
-b1111 [
+b1111 Z
 0-
-b1111 T
+b1111 U
 1D
 1.
 1(
 #1100000
+1A
 0D
 0.
 0(
-b1011 S
+b1011 T
 b11 G
-b11 K
+b11 L
 #1150000
 0@
 1D
@@ -585,9 +565,9 @@ b11 K
 0D
 0.
 0(
-b1000 S
+b1000 T
 b0 G
-b0 K
+b0 L
 #1250000
 1D
 1.
@@ -596,10 +576,10 @@ b0 K
 0D
 0.
 0(
-b0 S
+b0 T
 0E
 #1350000
-0W
+0A
 1D
 1.
 1(
@@ -607,26 +587,26 @@ b0 S
 0D
 0.
 0(
-b100 S
+b100 T
 1F
 #1450000
-1\
+1[
 b0 C
-b0 O
-b0 `
+b0 P
+b0 _
+0K
 b1110 ?
-b1110 M
+b1110 N
 b1 B
-b1 N
-b1 Q
-b100 R
-b1110 L
-b1110 P
-b1110 U
+b1 O
+b1 R
+b100 S
+b1110 M
+b1110 Q
 b1110 V
-b1110 [
+b1110 Z
 1@
-b1110 T
+b1110 U
 1D
 1.
 1(
@@ -635,8 +615,8 @@ b1110 T
 0.
 0(
 b11 G
-b11 K
-b11 S
+b11 L
+b11 T
 0F
 #1550000
 0@
@@ -648,24 +628,23 @@ b11 S
 0.
 0(
 b10 G
-b10 K
-b110 S
+b10 L
+b110 T
 1F
 #1650000
-1^
+1]
 b1010 ?
-b1010 M
-b100 R
+b1010 N
+b100 S
 b10 B
-b10 N
-b10 Q
-b1010 L
-b1010 P
-b1010 U
+b10 O
+b10 R
+b1010 M
+b1010 Q
 b1010 V
-b1010 [
+b1010 Z
 1@
-b1010 T
+b1010 U
 1D
 1.
 1(
@@ -673,23 +652,22 @@ b1010 T
 0D
 0.
 0(
-b111 S
+b111 T
 b11 G
-b11 K
+b11 L
 #1750000
-1_
+1^
 b10 ?
-b10 M
-b100 R
+b10 N
+b100 S
 b11 B
-b11 N
-b11 Q
-b10 L
-b10 P
-b10 U
+b11 O
+b11 R
+b10 M
+b10 Q
 b10 V
-b10 [
-b10 T
+b10 Z
+b10 U
 1D
 1.
 1(
@@ -697,23 +675,22 @@ b10 T
 0D
 0.
 0(
-b101 S
+b101 T
 b1 G
-b1 K
+b1 L
 #1850000
-1]
+1\
 b0 ?
-b0 M
-b100 R
+b0 N
+b100 S
 b100 B
-b100 N
-b100 Q
-b0 L
-b0 P
-b0 U
+b100 O
+b100 R
+b0 M
+b0 Q
 b0 V
-b0 [
-b0 T
+b0 Z
+b0 U
 1D
 1.
 1(
@@ -722,8 +699,8 @@ b0 T
 0.
 0(
 b0 G
-b0 K
-b0 S
+b0 L
+b0 T
 0F
 #1950000
 0@
