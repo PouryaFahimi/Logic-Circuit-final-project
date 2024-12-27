@@ -1,5 +1,5 @@
 $date
-	Fri Dec 27 19:46:26 2024
+	Fri Dec 27 23:24:50 2024
 $end
 $version
 	Icarus Verilog
@@ -11,81 +11,109 @@ $scope module Capacity_tb $end
 $var wire 3 ! out [2:0] $end
 $var reg 4 " in [3:0] $end
 $scope module UUT $end
-$var wire 1 # and_out1 $end
-$var wire 1 $ and_out2 $end
-$var wire 4 % in [3:0] $end
-$var wire 1 & not_in0 $end
-$var wire 1 ' not_in1 $end
-$var wire 1 ( not_in2 $end
-$var wire 1 ) not_in3 $end
-$var wire 1 * or1 $end
-$var wire 1 + or2 $end
-$var wire 1 , or3 $end
-$var wire 1 - or4 $end
-$var wire 1 . or5 $end
-$var wire 1 / xor_out1 $end
-$var wire 3 0 out [2:0] $end
+$var wire 4 # in [3:0] $end
+$var reg 3 $ out [2:0] $end
+$var integer 32 % i [31:0] $end
 $upscope $end
 $upscope $end
 $scope module FSM_tb $end
-$var wire 4 1 state [3:0] $end
-$var wire 1 2 door_open_pulse $end
-$var reg 1 3 clk $end
-$var reg 4 4 in [3:0] $end
+$var wire 4 & state [3:0] $end
+$var wire 1 ' door_open_pulse $end
+$var reg 1 ( clk $end
+$var reg 4 ) in [3:0] $end
 $scope module UUT $end
-$var wire 1 3 clk $end
-$var wire 4 5 in [3:0] $end
-$var reg 1 2 door_open_pulse $end
-$var reg 4 6 next_state [3:0] $end
-$var reg 4 7 state [3:0] $end
+$var wire 1 ( clk $end
+$var wire 4 * in [3:0] $end
+$var reg 1 ' door_open_pulse $end
+$var reg 4 + next_state [3:0] $end
+$var reg 4 , state [3:0] $end
 $upscope $end
 $upscope $end
 $scope module Full_Light_tb $end
-$var wire 1 8 pulse $end
-$var reg 1 9 clk $end
-$var reg 1 : ent $end
-$var reg 1 ; ext $end
-$var reg 4 < in [3:0] $end
+$var wire 1 - pulse $end
+$var reg 1 . clk $end
+$var reg 1 / ent $end
+$var reg 1 0 ext $end
+$var reg 4 1 in [3:0] $end
 $scope module UUT $end
-$var wire 1 9 clk $end
-$var wire 1 : enter_sensor $end
-$var wire 1 ; exit_sensor $end
-$var wire 4 = fsm_state [3:0] $end
-$var reg 1 > enter_sensor_prev $end
-$var reg 1 8 pulse $end
+$var wire 1 . clk $end
+$var wire 1 / enter_sensor $end
+$var wire 1 0 exit_sensor $end
+$var wire 4 2 fsm_state [3:0] $end
+$var reg 1 3 enter_sensor_prev $end
+$var reg 1 - pulse $end
 $upscope $end
 $upscope $end
 $scope module Location_tb $end
-$var wire 3 ? encoded [2:0] $end
-$var reg 4 @ in [3:0] $end
+$var wire 3 4 encoded [2:0] $end
+$var reg 4 5 in [3:0] $end
 $scope module UUT $end
-$var wire 1 A and0 $end
-$var wire 1 B and1 $end
-$var wire 1 C and2 $end
-$var wire 4 D in [3:0] $end
-$var wire 1 E not_in0 $end
-$var wire 1 F not_in1 $end
-$var wire 1 G not_in2 $end
-$var wire 1 H not_in3 $end
-$var wire 3 I encoded [2:0] $end
+$var wire 1 6 and0 $end
+$var wire 1 7 and1 $end
+$var wire 1 8 and2 $end
+$var wire 4 9 in [3:0] $end
+$var wire 1 : not_in0 $end
+$var wire 1 ; not_in1 $end
+$var wire 1 < not_in2 $end
+$var wire 1 = not_in3 $end
+$var wire 3 > encoded [2:0] $end
 $upscope $end
 $upscope $end
 $scope module ReadWrite_tb $end
-$var wire 4 J state [3:0] $end
-$var wire 1 K open $end
-$var reg 2 L _switch [1:0] $end
-$var reg 1 M clk $end
-$var reg 1 N entry $end
-$var reg 1 O exit $end
-$var integer 32 P file [31:0] $end
-$var integer 32 Q file_out [31:0] $end
-$var integer 32 R status [31:0] $end
+$var wire 4 ? state [3:0] $end
+$var wire 1 @ open $end
+$var wire 1 A full $end
+$var wire 3 B capacity [2:0] $end
+$var wire 3 C best_place [2:0] $end
+$var reg 1 D clk $end
+$var reg 1 E entry $end
+$var reg 1 F exit $end
+$var reg 2 G switch [1:0] $end
+$var integer 32 H file [31:0] $end
+$var integer 32 I file_out [31:0] $end
+$var integer 32 J status [31:0] $end
 $scope module UUT $end
-$var wire 1 M clk $end
+$var wire 1 D clk $end
+$var wire 1 E entry_sensor $end
+$var wire 1 F exit_sensor $end
+$var wire 2 K switch [1:0] $end
+$var wire 4 L state [3:0] $end
+$var wire 4 M parking_slots [3:0] $end
+$var wire 1 A full_light $end
+$var wire 1 @ door_open_light $end
+$var wire 3 N capacity [2:0] $end
+$var wire 3 O best_place [2:0] $end
+$scope module cap $end
+$var wire 4 P in [3:0] $end
+$var reg 3 Q out [2:0] $end
+$var integer 32 R i [31:0] $end
+$upscope $end
+$scope module fsm $end
+$var wire 1 D clk $end
 $var wire 4 S in [3:0] $end
-$var reg 1 K door_open_pulse $end
+$var reg 1 @ door_open_pulse $end
 $var reg 4 T next_state [3:0] $end
 $var reg 4 U state [3:0] $end
+$upscope $end
+$scope module full $end
+$var wire 1 D clk $end
+$var wire 1 E enter_sensor $end
+$var wire 1 F exit_sensor $end
+$var wire 4 V fsm_state [3:0] $end
+$var reg 1 W enter_sensor_prev $end
+$var reg 1 A pulse $end
+$upscope $end
+$scope module loc $end
+$var wire 1 X and0 $end
+$var wire 1 Y and1 $end
+$var wire 1 Z and2 $end
+$var wire 4 [ in [3:0] $end
+$var wire 1 \ not_in0 $end
+$var wire 1 ] not_in1 $end
+$var wire 1 ^ not_in2 $end
+$var wire 1 _ not_in3 $end
+$var wire 3 ` encoded [2:0] $end
+$upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -94,460 +122,631 @@ $dumpall
 $end
 #0
 $dumpvars
+b0 `
+1_
+1^
+1]
+1\
+b0 [
+0Z
+0Y
+0X
+0W
+b0 V
 b0 U
 bx T
 b0 S
 b100 R
-b10000000000000000000000000000100 Q
-b10000000000000000000000000000011 P
-0O
-0N
-0M
+b100 Q
+b0 P
+b0 O
+b100 N
+b0 M
 b0 L
-0K
-b0 J
-b1 I
-1H
-1G
-1F
+b0 K
+b100 J
+b10000000000000000000000000000100 I
+b10000000000000000000000000000011 H
+b0 G
+0F
 0E
-b1 D
-0C
-0B
-1A
-b1 @
-b1 ?
-x>
-b1 =
-b1 <
-0;
+0D
+b0 C
+b100 B
+0A
+0@
+b0 ?
+b1 >
+1=
+1<
+1;
 0:
-09
+b1 9
 08
-b0 7
-bx 6
-b0 5
-b0 4
+07
+16
+b1 5
+b1 4
 03
-02
-b0 1
-b1 0
+b1 2
+b1 1
+00
 0/
-1.
-1-
-1,
-0+
-1*
-1)
-1(
-1'
-0&
-b1 %
-0$
-0#
+0.
+0-
+b0 ,
+bx +
+b0 *
+b0 )
+0(
+0'
+b0 &
+b100 %
+b11 $
+b1 #
 b1 "
-b1 !
+b11 !
 $end
 #50000
-0>
 b0 T
-b0 6
-1M
-19
-13
-#100000
-b0 ?
-b0 I
-1E
-0A
-1&
-0,
-0-
-0.
-b0 !
-b0 0
-0M
-09
-03
-b1000 S
-1N
-b0 @
-b0 D
-1:
-b0 <
-b0 =
-b1000 4
-b1000 5
-b0 "
-b0 %
-#150000
-b1 J
-b1 U
-1K
-1>
-b1 1
-b1 7
-12
-b1 T
-b1 6
-1M
-19
-13
-#200000
-b1 !
-b1 0
-0G
-0(
-1+
-1,
+b0 +
+1D
 1.
-1/
-0M
-09
-03
-b1001 S
-b1 L
-b100 @
-b100 D
-b1111 <
-b1111 =
-b100 4
-b100 5
-b100 "
-b100 %
-#250000
-b11 J
-b11 U
-b0 1
-b0 7
-b11 T
-b0 6
-1M
-19
-13
-#300000
-1#
-0H
-1G
-0F
-0'
 1(
-0)
-1-
-b10 !
-b10 0
-0M
-09
-03
-b1 S
-0N
-b1010 @
-b1010 D
-b1010 <
-b1010 =
-b1000 4
-b1000 5
-b1010 "
-b1010 %
-#350000
-0K
-b1 1
-b1 7
-b1 6
-1M
-19
-13
-#400000
-0#
-0*
-0G
-0E
-0B
-b101 ?
-b101 I
-0&
-0(
-1$
-0/
+#100000
+b0 4
+b0 >
+1:
+06
+b100 %
 b100 !
-b100 0
-0M
-09
-03
-b11 L
-b1011 S
-1N
-b1111 @
-b1111 D
-b1111 <
-b1111 =
-b1111 "
-b1111 %
-#450000
-b111 J
-b111 U
-1K
-b11 1
-b11 7
-b111 T
-b11 6
-1M
-19
-13
-#500000
-1#
-1*
+b100 $
+0D
+0.
+0(
+b1000 S
 1E
-b0 ?
-b0 I
-1&
-0$
+b0 5
+b0 9
+1/
+b0 1
+b0 2
+b1000 )
+b1000 *
+b0 "
+b0 #
+#150000
+b1 C
+b1 O
+b1 `
+0\
+1X
+b1 ?
+b1 M
+b100 R
+b11 B
+b11 N
+b11 Q
+1W
+b1 L
+b1 P
+b1 U
+b1 V
+b1 [
+1@
+13
+b1 &
+b1 ,
+1'
+b1 T
+b1 +
+1D
+1.
+1(
+#200000
+0<
+b100 %
 b11 !
-b11 0
-0M
-09
-03
-b1 L
-1O
-b101 S
-0N
-b1110 @
-b1110 D
-0:
-b1110 "
-b1110 %
-#550000
-b101 J
-b101 U
-0>
-b111 1
-b111 7
-b101 T
-b111 6
-1M
-19
-13
-#600000
-b11 ?
-b11 I
-1C
-1H
-0E
-0M
-09
-03
-b0 L
-0O
-b1000 S
-1N
-b111 @
-b111 D
-1:
-#650000
-b111 J
-b111 U
-1>
-18
-b1111 1
-b1111 7
-b111 T
-b1111 6
-1M
-19
-13
-#700000
-0M
-09
-03
-1O
-b100 S
-0N
-b1100 <
-b1100 =
-#750000
-b110 J
-b110 U
-08
-02
-b110 T
-1M
-19
-13
-#800000
-0M
-09
-03
-0:
-b1101 <
-b1101 =
-#850000
-0K
-0>
-1M
-19
-13
-#900000
-0M
-09
-03
-b1 L
-0O
+b11 $
+0D
+0.
+0(
 b1001 S
-1N
-1:
-b1111 <
-b1111 =
-#950000
-b111 J
-b111 U
-1K
-1>
-18
-b111 T
-1M
-19
-13
-#1000000
-0M
-09
-03
-b1000 S
-b0 L
-#1050000
-b1111 J
-b1111 U
-08
-b1111 T
-1M
-19
-13
-#1100000
-0M
-09
-03
+b1 G
+b1 K
+b100 5
+b100 9
+b1111 1
+b1111 2
+b100 )
+b100 *
+b100 "
+b100 #
+#250000
+0X
+b10 C
+b10 O
+b10 `
+0]
+1Y
+b11 ?
+b11 M
+b100 R
+b10 B
+b10 N
+b10 Q
+b11 L
+b11 P
+b11 U
+b11 V
+b11 [
+b0 &
+b0 ,
+b11 T
+b0 +
+1D
+1.
+1(
+#300000
+0=
+1<
+0;
+b100 %
+b10 !
+b10 $
+0D
+0.
+0(
+b1 S
+0E
+b1010 5
+b1010 9
+b1010 1
+b1010 2
+b1000 )
+b1000 *
+b1010 "
+b1010 #
+#350000
+0W
+0@
+b1 &
+b1 ,
+b1 +
+1D
+1.
+1(
+#400000
+0<
+0:
+07
+b101 4
+b101 >
+b100 %
+b0 !
+b0 $
+0D
+0.
+0(
+b11 G
+b11 K
 b1011 S
-b11 L
-#1150000
-0K
-1M
-19
-13
-#1200000
-0M
-09
-03
-b1000 S
-b0 L
-#1250000
-1M
-19
-13
-#1300000
-0M
-09
-03
-b0 S
-0N
-#1350000
-1M
-19
-13
-#1400000
-0M
-09
-03
-b100 S
-1O
-#1450000
-b1110 J
-b1110 U
-1K
-b1110 T
-1M
-19
-13
-#1500000
-0M
-09
-03
-b11 L
-b11 S
-0O
-#1550000
-0K
-1M
-19
-13
-#1600000
-0M
-09
-03
-b10 L
-b110 S
-1O
-#1650000
-b1010 J
-b1010 U
-1K
-b1010 T
-1M
-19
-13
-#1700000
-0M
-09
-03
-b111 S
-b11 L
-#1750000
-b10 J
-b10 U
-b10 T
-1M
-19
-13
-#1800000
-0M
-09
-03
+1E
+b1111 5
+b1111 9
+b1111 1
+b1111 2
+b1111 "
+b1111 #
+#450000
+0Y
+b11 C
+b11 O
+b11 `
+0^
+1Z
+b111 ?
+b111 M
+b100 R
+b1 B
+b1 N
+b1 Q
+b111 L
+b111 P
+b111 U
+b111 V
+b111 [
+1@
+1W
+b11 &
+b11 ,
+b111 T
+b11 +
+1D
+1.
+1(
+#500000
+1:
+b0 4
+b0 >
+b1 !
+b1 $
+b100 %
+0D
+0.
+0(
+b1 G
+b1 K
+1F
 b101 S
-b1 L
-#1850000
-b0 J
-b0 U
-b0 T
-1M
-19
-13
-#1900000
-0M
-09
+0E
+b1110 5
+b1110 9
+0/
+b1110 "
+b1110 #
+#550000
+1X
+b1 C
+b1 O
+b1 `
+1]
+0Z
+b101 ?
+b101 M
+b100 R
+b10 B
+b10 N
+b10 Q
+0W
+b101 L
+b101 P
+b101 U
+b101 V
+b101 [
 03
-b0 L
+b111 &
+b111 ,
+b101 T
+b111 +
+1D
+1.
+1(
+#600000
+b11 4
+b11 >
+18
+1=
+0:
+0D
+0.
+0(
+b0 G
+b0 K
+0F
+b1000 S
+1E
+b111 5
+b111 9
+1/
+#650000
+0X
+b11 C
+b11 O
+b11 `
+0]
+1Z
+b111 ?
+b111 M
+b100 R
+b1 B
+b1 N
+b1 Q
+b111 L
+b111 P
+b111 U
+b111 V
+b111 [
+1W
+13
+1-
+b1111 &
+b1111 ,
+b111 T
+b1111 +
+1D
+1.
+1(
+#700000
+0D
+0.
+0(
+1F
+b100 S
+0E
+b1100 1
+b1100 2
+#750000
+b0 C
+b0 O
+b0 `
+1\
+0Z
+b110 ?
+b110 M
+b100 R
+b10 B
+b10 N
+b10 Q
+0W
+b110 L
+b110 P
+b110 U
+b110 V
+b110 [
+0-
+0'
+b110 T
+1D
+1.
+1(
+#800000
+0D
+0.
+0(
+0/
+b1101 1
+b1101 2
+#850000
+0@
+03
+1D
+1.
+1(
+#900000
+0D
+0.
+0(
+b1 G
+b1 K
+0F
+b1001 S
+1E
+1/
+b1111 1
+b1111 2
+#950000
+b11 C
+b11 O
+b11 `
+0\
+1Z
+b111 ?
+b111 M
+b100 R
+b1 B
+b1 N
+b1 Q
+1W
+b111 L
+b111 P
+b111 U
+b111 V
+b111 [
+1@
+13
+1-
+b111 T
+1D
+1.
+1(
+#1000000
+0D
+0.
+0(
+b1000 S
+b0 G
+b0 K
+#1050000
+0Z
+0_
+b101 C
+b101 O
+b101 `
+b1111 ?
+b1111 M
+b100 R
+b0 B
+b0 N
+b0 Q
+b1111 L
+b1111 P
+b1111 U
+b1111 V
+b1111 [
+0-
+b1111 T
+1D
+1.
+1(
+#1100000
+0D
+0.
+0(
+b1011 S
+b11 G
+b11 K
+#1150000
+0@
+1D
+1.
+1(
+#1200000
+0D
+0.
+0(
+b1000 S
+b0 G
+b0 K
+#1250000
+1D
+1.
+1(
+#1300000
+0D
+0.
+0(
 b0 S
-0O
+0E
+#1350000
+0W
+1D
+1.
+1(
+#1400000
+0D
+0.
+0(
+b100 S
+1F
+#1450000
+1\
+b0 C
+b0 O
+b0 `
+b1110 ?
+b1110 M
+b1 B
+b1 N
+b1 Q
+b100 R
+b1110 L
+b1110 P
+b1110 U
+b1110 V
+b1110 [
+1@
+b1110 T
+1D
+1.
+1(
+#1500000
+0D
+0.
+0(
+b11 G
+b11 K
+b11 S
+0F
+#1550000
+0@
+1D
+1.
+1(
+#1600000
+0D
+0.
+0(
+b10 G
+b10 K
+b110 S
+1F
+#1650000
+1^
+b1010 ?
+b1010 M
+b100 R
+b10 B
+b10 N
+b10 Q
+b1010 L
+b1010 P
+b1010 U
+b1010 V
+b1010 [
+1@
+b1010 T
+1D
+1.
+1(
+#1700000
+0D
+0.
+0(
+b111 S
+b11 G
+b11 K
+#1750000
+1_
+b10 ?
+b10 M
+b100 R
+b11 B
+b11 N
+b11 Q
+b10 L
+b10 P
+b10 U
+b10 V
+b10 [
+b10 T
+1D
+1.
+1(
+#1800000
+0D
+0.
+0(
+b101 S
+b1 G
+b1 K
+#1850000
+1]
+b0 ?
+b0 M
+b100 R
+b100 B
+b100 N
+b100 Q
+b0 L
+b0 P
+b0 U
+b0 V
+b0 [
+b0 T
+1D
+1.
+1(
+#1900000
+0D
+0.
+0(
+b0 G
+b0 K
+b0 S
+0F
 #1950000
-0K
-1M
-19
-13
+0@
+1D
+1.
+1(
 #2000000
-0M
-09
-03
+0D
+0.
+0(
 #2050000
-1M
-19
-13
+1D
+1.
+1(
 #2100000
-0M
-09
-03
+0D
+0.
+0(
 #2150000
-1M
-19
-13
+1D
+1.
+1(
 #2200000
-0M
-09
-03
+0D
+0.
+0(

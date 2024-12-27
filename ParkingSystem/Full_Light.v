@@ -1,18 +1,19 @@
 module Full_Light (
-    input  wire [3:0] fsm_state,     // 4-bit FSM state
-    input  wire       enter_sensor,  // Enter sensor signal
-    input  wire       exit_sensor,   // Exit sensor signal
-    input  wire       clk,           // Clock signal for edge detection
-    output reg        pulse          // Output pulse
+    input [3:0] fsm_state,     // 4-bit FSM state
+    input enter_sensor,  // Enter sensor signal
+    input exit_sensor,   // Exit sensor signal
+    input clk,  // Clock signal for edge detection
+    output reg pulse  // Output pulse
 );
+
+  // Internal register to detect the posedge of enter_sensor
+  reg enter_sensor_prev;
 
   // Initialize outputs and internal signals
   initial begin
     pulse = 0;
+    enter_sensor_prev = 0;
   end
-
-  // Internal register to detect the posedge of enter_sensor
-  reg enter_sensor_prev;
 
   always @(posedge clk) begin
     // Edge detection and pulse generation

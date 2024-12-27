@@ -3,19 +3,27 @@ module ReadWrite_tb;
   reg clk;
   reg entry;
   reg exit;
-  reg [1:0] _switch;
+  reg [1:0] switch;
   wire [3:0] state;
   wire open;
+  wire full;
+  wire [2:0] capacity;
+  wire [2:0] best_place;
 
   integer file;
   integer file_out;
   integer status;
 
-  FSM UUT (
+  Circuit UUT (
       .clk(clk),
-      .in({entry, exit, _switch}),
-      .state(state),
-      .door_open_pulse(open)
+      .entry_sensor(entry),
+      .exit_sensor(exit),
+      .switch(switch),
+      .parking_slots(state),
+      .door_open_light(open),
+      .full_light(full),
+      .capacity(capacity),
+      .best_place(best_place)
   );
 
   initial begin
@@ -23,24 +31,22 @@ module ReadWrite_tb;
     $dumpvars(0, ReadWrite_tb);
     entry = 0;
     exit = 0;
-    _switch = 2'b00;
+    switch = 2'b00;
     clk = 0;
 
     file = $fopen("input.txt", "r");
     file_out = $fopen("output.txt", "w");
-    $display("the file content : %d", file);
     if (file == 0) begin
       $display("Error: Failed to open file.");
       $finish;
     end
 
-    while (!$feof(
-        file
-    )) begin
-      status = $fscanf(file, "%1b %1b %1b %1b\n", entry, exit, _switch[1], _switch[0]);
+    while (!$feof(file)) begin
+      status = $fscanf(file, "%1b %1b %1b %1b\n", entry, exit, switch[1], switch[0]);
       if (status == 4) begin
         #100;
-        $fwrite(file_out, "%b %s\n", state, open ? "open_door " : "");
+        $fwrite(file_out, "%b [%d,%d] %s%s\n", state, capacity, best_place,
+                open ? "Open Door " : "", full ? "Full" : "");
 
 
       end else begin
@@ -55,8 +61,8 @@ module ReadWrite_tb;
     #200 $finish;
   end
 
-    always begin
-        #50;
-        clk = ~clk;
-    end
+  always begin
+    #50;
+    clk = ~clk;
+  end
 endmodule

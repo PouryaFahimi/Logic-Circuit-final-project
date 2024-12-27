@@ -1,31 +1,37 @@
 {
   "OpenSignals": [
     {
-      "Id": "9",
+      "Id": "J",
       "DataType": 0,
       "AutomaticFixedPointShift": false,
       "FixedPointShift": 0
     },
     {
-      "Id": ":",
+      "Id": "K",
       "DataType": 0,
       "AutomaticFixedPointShift": false,
       "FixedPointShift": 0
     },
     {
-      "Id": ";",
+      "Id": "L",
       "DataType": 0,
       "AutomaticFixedPointShift": false,
       "FixedPointShift": 0
     },
     {
-      "Id": "=",
+      "Id": "M",
       "DataType": 0,
       "AutomaticFixedPointShift": false,
       "FixedPointShift": 0
     },
     {
-      "Id": "8",
+      "Id": "N",
+      "DataType": 0,
+      "AutomaticFixedPointShift": false,
+      "FixedPointShift": 0
+    },
+    {
+      "Id": "O",
       "DataType": 0,
       "AutomaticFixedPointShift": false,
       "FixedPointShift": 0
