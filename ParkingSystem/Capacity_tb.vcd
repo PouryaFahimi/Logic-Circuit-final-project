@@ -1,5 +1,5 @@
 $date
-	Fri Dec 27 18:16:54 2024
+	Fri Dec 27 19:46:26 2024
 $end
 $version
 	Icarus Verilog
@@ -70,12 +70,42 @@ $var wire 1 H not_in3 $end
 $var wire 3 I encoded [2:0] $end
 $upscope $end
 $upscope $end
+$scope module ReadWrite_tb $end
+$var wire 4 J state [3:0] $end
+$var wire 1 K open $end
+$var reg 2 L _switch [1:0] $end
+$var reg 1 M clk $end
+$var reg 1 N entry $end
+$var reg 1 O exit $end
+$var integer 32 P file [31:0] $end
+$var integer 32 Q file_out [31:0] $end
+$var integer 32 R status [31:0] $end
+$scope module UUT $end
+$var wire 1 M clk $end
+$var wire 4 S in [3:0] $end
+$var reg 1 K door_open_pulse $end
+$var reg 4 T next_state [3:0] $end
+$var reg 4 U state [3:0] $end
+$upscope $end
+$upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
 $end
 #0
 $dumpvars
+b0 U
+bx T
+b0 S
+b100 R
+b10000000000000000000000000000100 Q
+b10000000000000000000000000000011 P
+0O
+0N
+0M
+b0 L
+0K
+b0 J
 b1 I
 1H
 1G
@@ -120,7 +150,9 @@ b1 !
 $end
 #50000
 0>
+b0 T
 b0 6
+1M
 19
 13
 #100000
@@ -134,8 +166,11 @@ b0 I
 0.
 b0 !
 b0 0
+0M
 09
 03
+b1000 S
+1N
 b0 @
 b0 D
 1:
@@ -146,11 +181,16 @@ b1000 5
 b0 "
 b0 %
 #150000
+b1 J
+b1 U
+1K
 1>
 b1 1
 b1 7
 12
+b1 T
 b1 6
+1M
 19
 13
 #200000
@@ -162,8 +202,11 @@ b1 0
 1,
 1.
 1/
+0M
 09
 03
+b1001 S
+b1 L
 b100 @
 b100 D
 b1111 <
@@ -173,9 +216,13 @@ b100 5
 b100 "
 b100 %
 #250000
+b11 J
+b11 U
 b0 1
 b0 7
+b11 T
 b0 6
+1M
 19
 13
 #300000
@@ -189,8 +236,11 @@ b0 6
 1-
 b10 !
 b10 0
+0M
 09
 03
+b1 S
+0N
 b1010 @
 b1010 D
 b1010 <
@@ -200,9 +250,11 @@ b1000 5
 b1010 "
 b1010 %
 #350000
+0K
 b1 1
 b1 7
 b1 6
+1M
 19
 13
 #400000
@@ -219,8 +271,12 @@ b101 I
 0/
 b100 !
 b100 0
+0M
 09
 03
+b11 L
+b1011 S
+1N
 b1111 @
 b1111 D
 b1111 <
@@ -228,9 +284,14 @@ b1111 =
 b1111 "
 b1111 %
 #450000
+b111 J
+b111 U
+1K
 b11 1
 b11 7
+b111 T
 b11 6
+1M
 19
 13
 #500000
@@ -243,18 +304,27 @@ b0 I
 0$
 b11 !
 b11 0
+0M
 09
 03
+b1 L
+1O
+b101 S
+0N
 b1110 @
 b1110 D
 0:
 b1110 "
 b1110 %
 #550000
+b101 J
+b101 U
 0>
 b111 1
 b111 7
+b101 T
 b111 6
+1M
 19
 13
 #600000
@@ -263,87 +333,221 @@ b11 I
 1C
 1H
 0E
+0M
 09
 03
+b0 L
+0O
+b1000 S
+1N
 b111 @
 b111 D
 1:
 #650000
+b111 J
+b111 U
 1>
 18
 b1111 1
 b1111 7
+b111 T
 b1111 6
+1M
 19
 13
 #700000
+0M
 09
 03
+1O
+b100 S
+0N
 b1100 <
 b1100 =
 #750000
+b110 J
+b110 U
 08
 02
+b110 T
+1M
 19
 13
 #800000
+0M
 09
 03
 0:
 b1101 <
 b1101 =
 #850000
+0K
 0>
+1M
 19
 13
 #900000
+0M
 09
 03
+b1 L
+0O
+b1001 S
+1N
 1:
 b1111 <
 b1111 =
 #950000
+b111 J
+b111 U
+1K
 1>
 18
+b111 T
+1M
 19
 13
 #1000000
+0M
 09
 03
+b1000 S
+b0 L
 #1050000
+b1111 J
+b1111 U
 08
+b1111 T
+1M
 19
 13
 #1100000
+0M
 09
 03
+b1011 S
+b11 L
 #1150000
+0K
+1M
 19
 13
 #1200000
+0M
 09
 03
+b1000 S
+b0 L
 #1250000
+1M
 19
 13
 #1300000
+0M
 09
 03
+b0 S
+0N
 #1350000
+1M
 19
 13
 #1400000
+0M
 09
 03
+b100 S
+1O
 #1450000
+b1110 J
+b1110 U
+1K
+b1110 T
+1M
 19
 13
 #1500000
+0M
 09
 03
+b11 L
+b11 S
+0O
 #1550000
+0K
+1M
 19
 13
 #1600000
+0M
+09
+03
+b10 L
+b110 S
+1O
+#1650000
+b1010 J
+b1010 U
+1K
+b1010 T
+1M
+19
+13
+#1700000
+0M
+09
+03
+b111 S
+b11 L
+#1750000
+b10 J
+b10 U
+b10 T
+1M
+19
+13
+#1800000
+0M
+09
+03
+b101 S
+b1 L
+#1850000
+b0 J
+b0 U
+b0 T
+1M
+19
+13
+#1900000
+0M
+09
+03
+b0 L
+b0 S
+0O
+#1950000
+0K
+1M
+19
+13
+#2000000
+0M
+09
+03
+#2050000
+1M
+19
+13
+#2100000
+0M
+09
+03
+#2150000
+1M
+19
+13
+#2200000
+0M
 09
 03

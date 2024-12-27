@@ -1,0 +1,20 @@
+0000           
+0001 open_door 
+0011 open_door 
+0011           
+0111 open_door 
+0101 open_door 
+0111 open_door 
+0110 open_door 
+0110           
+0111 open_door 
+1111 open_door 
+1111           
+1111           
+1111           
+1110 open_door 
+1110           
+1010 open_door 
+0010 open_door 
+0000 open_door 
+0000           

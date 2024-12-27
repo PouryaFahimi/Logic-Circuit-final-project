@@ -41,7 +41,7 @@ module FSM_tb;
     in = 4'b1000;
     #100;
 
-    #1000;
+    #3000;
 
     $finish;
   end
