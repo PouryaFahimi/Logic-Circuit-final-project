@@ -14,6 +14,7 @@
   "TestBenches": [
     "Capacity_tb.v",
     "Location_tb.v",
-    "FSM_tb.v"
+    "FSM_tb.v",
+    "Full_Light_tb.v"
   ]
 }
