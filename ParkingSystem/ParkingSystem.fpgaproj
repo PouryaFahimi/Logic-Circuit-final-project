@@ -17,7 +17,6 @@
     "Capacity_tb.v",
     "Location_tb.v",
     "FSM_tb.v",
-    "Full_Light_tb.v",
-    "ReadWrite_tb.v"
+    "Circuit_tb.v"
   ]
 }

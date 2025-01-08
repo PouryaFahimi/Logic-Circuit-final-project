@@ -1,0 +1,59 @@
+module seven_segment_display (
+    input wire clk,
+    input wire [11:0] s1a,
+    output reg [7:0] set_Data,
+    output reg [4:0] see_sel
+);
+  reg [ 3:0] digit;
+  reg [ 1:0] digit_select;
+  reg [21:0] refresh_counter;  // Counter to create a refresh rate
+
+  // Generate a slower clock enable signal for refreshing the display
+  always @(posedge clk) begin
+    if (refresh_counter[9] == 1) refresh_counter <= 0;
+    else refresh_counter <= refresh_counter + 1;
+  end
+
+  // Segment definitions for 0-9
+  always @(digit) begin
+    case (digit)
+      4'd0: set_Data = 8'b00111111;
+      4'd1: set_Data = 8'b00000110;
+      4'd2: set_Data = 8'b01011011;
+      4'd3: set_Data = 8'b01001111;
+      4'd4: set_Data = 8'b01100110;
+      4'd5: set_Data = 8'b01101101;
+      4'd6: set_Data = 8'b01111101;
+      4'd7: set_Data = 8'b00000111;
+      4'd8: set_Data = 8'b01111111;
+      4'd9: set_Data = 8'b01101111;
+      default: set_Data = 8'b00000000;  // Off
+    endcase
+  end
+
+  // Multiplexing digits with refresh counter
+  always @(posedge clk) begin
+    if (refresh_counter[9] == 1) begin
+      if (digit_select < 3) digit_select <= digit_select + 1;
+      else digit_select <= 0;
+      case (digit_select)
+        2'b00: begin
+          digit   = s1a[2:0];
+          see_sel = 5'b01000;  // Select first 7-segment display
+        end
+        2'b01: begin
+          digit   = s1a[5:3];
+          see_sel = 5'b00100;  // Select second 7-segment display
+        end
+        2'b10: begin
+          digit   = s1a[8:6];
+          see_sel = 5'b00010;  // Select third 7-segment display
+        end
+        2'b11: begin
+          digit   = s1a[11:9];
+          see_sel = 5'b00001;  // Select fourth 7-segment display
+        end
+      endcase
+    end
+  end
+endmodule

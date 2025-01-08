@@ -9,6 +9,8 @@ module Circuit_tb;
   wire full;
   wire [2:0] capacity;
   wire [2:0] best_place;
+  wire [7:0] sev_data;
+  wire [4:0] sev_sel;
 
   integer file;
   integer file_out;
@@ -23,7 +25,9 @@ module Circuit_tb;
       .door_open_light(open),
       .full_light(full),
       .capacity(capacity),
-      .best_place(best_place)
+      .best_place(best_place),
+      .sev_data(sev_data),
+      .sev_sel(sev_sel)
   );
 
   initial begin
@@ -41,7 +45,9 @@ module Circuit_tb;
       $finish;
     end
 
-    while (!$feof(file)) begin
+    while (!$feof(
+        file
+    )) begin
       status = $fscanf(file, "%1b %1b %1b %1b\n", entry, exit, switch[1], switch[0]);
       if (status == 4) begin
         #100;

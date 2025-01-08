@@ -7,7 +7,9 @@ module Circuit (
     output door_open_light,
     output full_light,
     output [2:0] capacity,
-    output [2:0] best_place
+    output [2:0] best_place,
+    output [7:0] sev_data,
+    output [4:0] sev_sel
 );
 
   wire [3:0] state;
@@ -31,9 +33,34 @@ module Circuit (
       .out(capacity)
   );
 
+  wire [2:0] temp_cap;
+  wire [2:0] temp_loc;
+
+
   Location loc (
       .in(state),
       .encoded(best_place)
   );
+
+  and (
+      temp_cap[0], 1'b1, capacity[0]
+  ), (
+      temp_cap[1], 1'b1, capacity[1]
+  ), (
+      temp_cap[2], 1'b1, capacity[2]
+  ), (
+      temp_loc[0], 1'b1, best_place[0]
+  ), (
+      temp_loc[1], 1'b1, best_place[1]
+  ), (
+      temp_loc[2], 1'b1, best_place[2]
+  );
+
+seven_segment_display sev_seg (
+    .clk(clk),
+    .s1a({3'b000, temp_cap, 3'b000, temp_loc}),
+    .set_Data(sev_data),
+    .see_sel(sev_sel)
+);
 
 endmodule
