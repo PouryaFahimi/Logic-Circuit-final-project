@@ -4,7 +4,7 @@ module seven_segment_display (
     output reg [7:0] set_Data,
     output reg [4:0] see_sel
 );
-  reg [ 3:0] digit;
+  reg [ 2:0] digit;
   reg [ 1:0] digit_select;
   reg [21:0] refresh_counter;  // Counter to create a refresh rate
 
@@ -23,10 +23,6 @@ module seven_segment_display (
       4'd3: set_Data = 8'b01001111;
       4'd4: set_Data = 8'b01100110;
       4'd5: set_Data = 8'b01101101;
-      4'd6: set_Data = 8'b01111101;
-      4'd7: set_Data = 8'b00000111;
-      4'd8: set_Data = 8'b01111111;
-      4'd9: set_Data = 8'b01101111;
       default: set_Data = 8'b00000000;  // Off
     endcase
   end
@@ -38,19 +34,19 @@ module seven_segment_display (
       else digit_select <= 0;
       case (digit_select)
         2'b00: begin
-          digit   = s1a[2:0];
+          digit   = 6;
           see_sel = 5'b01000;  // Select first 7-segment display
         end
         2'b01: begin
-          digit   = s1a[5:3];
+          digit   = s1a[8:6];
           see_sel = 5'b00100;  // Select second 7-segment display
         end
         2'b10: begin
-          digit   = s1a[8:6];
+          digit   = 6;
           see_sel = 5'b00010;  // Select third 7-segment display
         end
         2'b11: begin
-          digit   = s1a[11:9];
+          digit   = s1a[2:0];
           see_sel = 5'b00001;  // Select fourth 7-segment display
         end
       endcase

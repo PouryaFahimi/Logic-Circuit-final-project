@@ -22,6 +22,8 @@ module Circuit (
       .clk_1Hz(clk_1Hz)
   );
 
+  wire [3:0] state;
+
   FSM fsm (
       .clk(clk_40MHz),
       .in({entry_sensor, exit_sensor, switch}),
@@ -29,7 +31,6 @@ module Circuit (
       .door_open_pulse(door_open_light)
   );
 
-  wire [3:0] state;
   and (parking_slots[0], 1'b1, state[0]);
   and (parking_slots[1], 1'b1, state[1]);
   and (parking_slots[2], 1'b1, state[2]);
