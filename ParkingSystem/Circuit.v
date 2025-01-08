@@ -67,11 +67,18 @@ module Circuit (
       temp_loc[2], 1'b1, best_place[2]
   );
 
-seven_segment_display sev_seg (
-    .clk(clk),
-    .s1a({3'b000, temp_cap, 3'b000, temp_loc}),
-    .set_Data(sev_data),
-    .see_sel(sev_sel)
-);
+  reg [11:0] data;
+  assign data = 0;
+  always @(*) begin
+    data[2:0] = temp_loc;
+    data[8:6] = temp_cap;
+  end
+
+  seven_segment_display sev_seg (
+      .clk(clk),
+      .s1a(data),
+      .set_Data(sev_data),
+      .see_sel(sev_sel)
+  );
 
 endmodule

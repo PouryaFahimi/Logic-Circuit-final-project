@@ -1,5 +1,5 @@
 // Frequency Divider Module
-module frequency_divider (
+module FrequencyDivider (
     input  wire clk_40MHz,      // 40 MHz input clock
     input  wire rst,            // Active-high reset
     output reg  clk_40MHz_out,  // Pass-through of 40 MHz clock
