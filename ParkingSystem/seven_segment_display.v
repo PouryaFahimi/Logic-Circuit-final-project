@@ -1,10 +1,10 @@
 module seven_segment_display (
     input wire clk,
-    input wire [11:0] s1a,
+    input wire [5:0] s1a,
     output reg [7:0] set_Data,
     output reg [4:0] see_sel
 );
-  reg [ 2:0] digit;
+  reg [ 3:0] digit;
   reg [ 1:0] digit_select;
   reg [21:0] refresh_counter;  // Counter to create a refresh rate
 
@@ -17,14 +17,16 @@ module seven_segment_display (
   // Segment definitions for 0-9
   always @(digit) begin
     case (digit)
-      3'd0: set_Data = 8'b00111111;
-      3'd1: set_Data = 8'b00000110;
-      3'd2: set_Data = 8'b01011011;
-      3'd3: set_Data = 8'b01001111;
-      3'd4: set_Data = 8'b01100110;
-      3'd5: set_Data = 8'b01101101;
-      3'd6: set_Data = 8'b01111101;
-      3'd7: set_Data = 8'b00000111;
+      4'd0: set_Data = 8'b00111111;
+      4'd1: set_Data = 8'b00000110;
+      4'd2: set_Data = 8'b01011011;
+      4'd3: set_Data = 8'b01001111;
+      4'd4: set_Data = 8'b01100110;
+      4'd5: set_Data = 8'b01101101;
+      4'd6: set_Data = 8'b01111101;
+      4'd7: set_Data = 8'b00000111;
+      4'd8: set_Data = 8'b01111111;
+      4'd9: set_Data = 8'b01101111;
       default: set_Data = 8'b00000000;  // Off
     endcase
   end

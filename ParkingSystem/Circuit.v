@@ -68,10 +68,14 @@ module Circuit (
   );
 
   reg [11:0] data;
-  assign data = 0;
+
   always @(*) begin
-    data[2:0] = temp_loc;
-    data[8:6] = temp_cap;
+    // Initialize all bits to avoid 'x'
+    data = 12'b0;
+
+    // Assign values to specific bits
+    data[2:0] = temp_loc;  // Location information
+    data[8:6] = temp_cap;  // Capacity information
   end
 
   seven_segment_display sev_seg (
