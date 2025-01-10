@@ -23,12 +23,20 @@ module Circuit (
   );
 
   wire [3:0] state;
+  wire door_open_trigger, full_trigger;
 
   FSM fsm (
       .clk(clk_40MHz),
       .in({entry_sensor, exit_sensor, switch}),
       .state(state),
-      .door_open_pulse(door_open_light)
+      .door_open_pulse(door_trigger)
+  );
+
+  DoorOpen door_open_flasher (
+      .clk_40MHz(clk_40MHz),
+      .clk_2Hz(clk_2Hz),
+      .trigger(door_open_trigger),
+      .LED(door_open_light)
   );
 
   and (parking_slots[0], 1'b1, state[0]);
@@ -38,7 +46,14 @@ module Circuit (
 
   wire full_temp;
   and (full_temp, state[0], state[1], state[2], state[3]);
-  and #50 (full_light, full_temp, entry_sensor, ~exit_sensor);
+  and #50 (full_trigger, full_temp, entry_sensor, ~exit_sensor);
+
+  FullLight full_light_flasher (
+      .clk_40MHz(clk_40MHz),
+      .clk_1Hz(clk_1Hz),
+      .trigger(full_trigger),
+      .LED(full_light)
+  );
 
   Capacity cap (
       .in (state),
