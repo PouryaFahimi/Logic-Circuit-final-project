@@ -32,6 +32,7 @@ module Circuit (
   FSM fsm (
       .clk(clk_40MHz),
       .in({entry_sensor, exit_sensor, switch}),
+      .reset(reset),
       .state(state),
       .door_open_pulse(door_trigger)
   );
