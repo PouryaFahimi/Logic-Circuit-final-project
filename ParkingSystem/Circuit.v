@@ -18,6 +18,7 @@ module Circuit (
 
   FrequencyDivider freqDiv (
       .clk_40MHz(clk),
+      .rst(reset),
       .clk_40MHz_out(clk_40MHz),
       .clk_100Hz(clk_100Hz),
       .clk_2Hz(clk_2Hz),
@@ -39,6 +40,7 @@ module Circuit (
       .clk_40MHz(clk_40MHz),
       .clk_2Hz(clk_2Hz),
       .trigger(door_open_trigger),
+      .reset(reset),
       .LED(door_open_light)
   );
 
@@ -57,6 +59,7 @@ module Circuit (
       .clk_40MHz(clk_40MHz),
       .clk_1Hz(clk_1Hz),
       .trigger(full_trigger),
+      .reset(reset),
       .LED(full_light)
   );
 
