@@ -3,6 +3,7 @@ module Circuit (
     input entry_sensor,
     input exit_sensor,
     input [1:0] switch,
+    input reset,
 
     output [3:0] parking_slots,
     output door_open_light,
@@ -14,6 +15,7 @@ module Circuit (
 );
 
   wire clk_40MHz, clk_100Hz, clk_2Hz, clk_1Hz;
+
   FrequencyDivider freqDiv (
       .clk_40MHz(clk),
       .clk_40MHz_out(clk_40MHz),
@@ -21,6 +23,7 @@ module Circuit (
       .clk_2Hz(clk_2Hz),
       .clk_1Hz(clk_1Hz)
   );
+
 
   wire [3:0] state;
   wire door_open_trigger, full_trigger;
@@ -39,11 +42,13 @@ module Circuit (
       .LED(door_open_light)
   );
 
+  /*** fix later ***/
   and (parking_slots[0], 1'b1, state[0]);
   and (parking_slots[1], 1'b1, state[1]);
   and (parking_slots[2], 1'b1, state[2]);
   and (parking_slots[3], 1'b1, state[3]);
 
+  /*** fix later ***/
   wire full_temp;
   and (full_temp, state[0], state[1], state[2], state[3]);
   and #50 (full_trigger, full_temp, entry_sensor, ~exit_sensor);
@@ -55,14 +60,16 @@ module Circuit (
       .LED(full_light)
   );
 
+
+  wire [2:0] temp_cap;
+
   Capacity cap (
       .in (state),
       .out(capacity)
   );
 
-  wire [2:0] temp_cap;
-  wire [2:0] temp_loc;
 
+  wire [2:0] temp_loc;
 
   Location loc (
       .in(state),
