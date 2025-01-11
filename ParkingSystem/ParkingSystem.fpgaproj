@@ -17,6 +17,7 @@
     "Capacity_tb.v",
     "Location_tb.v",
     "FSM_tb.v",
-    "Circuit_tb.v"
+    "Circuit_tb.v",
+    "seven_segment_display_tb.v"
   ]
 }

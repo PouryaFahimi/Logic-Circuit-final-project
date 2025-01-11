@@ -1,5 +1,5 @@
 $date
-	Wed Jan 08 15:01:33 2025
+	Sat Jan 11 14:56:18 2025
 $end
 $version
 	Icarus Verilog
@@ -35,78 +35,124 @@ $scope module UUT $end
 $var wire 1 - clk $end
 $var wire 1 . entry_sensor $end
 $var wire 1 / exit_sensor $end
-$var wire 1 * full_light $end
 $var wire 1 4 full_temp $end
-$var wire 2 5 switch [1:0] $end
-$var wire 3 6 temp_loc [2:0] $end
-$var wire 3 7 temp_cap [2:0] $end
-$var wire 4 8 state [3:0] $end
-$var wire 5 9 sev_sel [4:0] $end
-$var wire 8 : sev_data [7:0] $end
-$var wire 4 ; parking_slots [3:0] $end
+$var wire 1 5 full_trigger $end
+$var wire 1 6 reset $end
+$var wire 2 7 switch [1:0] $end
+$var wire 3 8 temp_loc [2:0] $end
+$var wire 3 9 temp_cap [2:0] $end
+$var wire 4 : state [3:0] $end
+$var wire 5 ; sev_sel [4:0] $end
+$var wire 8 < sev_data [7:0] $end
+$var wire 4 = parking_slots [3:0] $end
+$var wire 1 * full_light $end
+$var wire 1 > door_open_trigger $end
 $var wire 1 ) door_open_light $end
-$var wire 3 < capacity [2:0] $end
-$var wire 3 = best_place [2:0] $end
+$var wire 1 ? clk_40MHz $end
+$var wire 1 @ clk_2Hz $end
+$var wire 1 A clk_1Hz $end
+$var wire 1 B clk_100Hz $end
+$var wire 3 C capacity [2:0] $end
+$var wire 3 D best_place [2:0] $end
+$var reg 12 E data [11:0] $end
 $scope module cap $end
-$var wire 4 > in [3:0] $end
-$var reg 3 ? out [2:0] $end
-$var integer 32 @ i [31:0] $end
+$var wire 4 F in [3:0] $end
+$var reg 3 G out [2:0] $end
+$var integer 32 H i [31:0] $end
+$upscope $end
+$scope module door_open_flasher $end
+$var wire 1 6 reset $end
+$var wire 1 > trigger $end
+$var wire 1 ? clk_40MHz $end
+$var wire 1 @ clk_2Hz $end
+$var reg 1 ) LED $end
+$var reg 4 I counter [3:0] $end
+$var reg 1 J flashing $end
+$var reg 1 K trigger_latched $end
+$var integer 32 L FLASH_COUNT [31:0] $end
+$upscope $end
+$scope module freqDiv $end
+$var wire 1 - clk_40MHz $end
+$var wire 1 6 rst $end
+$var reg 1 B clk_100Hz $end
+$var reg 1 A clk_1Hz $end
+$var reg 1 @ clk_2Hz $end
+$var reg 1 ? clk_40MHz_out $end
+$var reg 32 M counter_100Hz [31:0] $end
+$var reg 32 N counter_1Hz [31:0] $end
+$var reg 32 O counter_2Hz [31:0] $end
+$var integer 32 P DIV_100HZ [31:0] $end
+$var integer 32 Q DIV_1HZ [31:0] $end
+$var integer 32 R DIV_2HZ [31:0] $end
 $upscope $end
 $scope module fsm $end
-$var wire 1 - clk $end
-$var wire 4 A in [3:0] $end
-$var reg 1 ) door_open_pulse $end
-$var reg 4 B next_state [3:0] $end
-$var reg 4 C state [3:0] $end
+$var wire 1 ? clk $end
+$var wire 4 S in [3:0] $end
+$var wire 1 6 reset $end
+$var reg 1 > door_open_pulse $end
+$var reg 4 T next_state [3:0] $end
+$var reg 4 U state [3:0] $end
+$upscope $end
+$scope module full_light_flasher $end
+$var wire 1 A clk_1Hz $end
+$var wire 1 ? clk_40MHz $end
+$var wire 1 6 reset $end
+$var wire 1 5 trigger $end
+$var reg 1 * LED $end
+$var reg 4 V counter [3:0] $end
+$var reg 1 W flashing $end
+$var reg 1 X trigger_latched $end
+$var integer 32 Y FLASH_COUNT [31:0] $end
 $upscope $end
 $scope module loc $end
-$var wire 1 D and0 $end
-$var wire 1 E and1 $end
-$var wire 1 F and2 $end
-$var wire 4 G in [3:0] $end
-$var wire 1 H not_in0 $end
-$var wire 1 I not_in1 $end
-$var wire 1 J not_in2 $end
-$var wire 1 K not_in3 $end
-$var wire 3 L encoded [2:0] $end
+$var wire 1 Z and0 $end
+$var wire 1 [ and1 $end
+$var wire 1 \ and2 $end
+$var wire 4 ] in [3:0] $end
+$var wire 1 ^ not_in0 $end
+$var wire 1 _ not_in1 $end
+$var wire 1 ` not_in2 $end
+$var wire 1 a not_in3 $end
+$var wire 3 b encoded [2:0] $end
 $upscope $end
 $scope module sev_seg $end
 $var wire 1 - clk $end
-$var wire 12 M s1a [11:0] $end
-$var reg 4 N digit [3:0] $end
-$var reg 2 O digit_select [1:0] $end
-$var reg 22 P refresh_counter [21:0] $end
-$var reg 5 Q see_sel [4:0] $end
-$var reg 8 R set_Data [7:0] $end
+$var wire 12 c s1a [11:0] $end
+$var reg 3 d digit [2:0] $end
+$var reg 2 e digit_select [1:0] $end
+$var reg 22 f refresh_counter [21:0] $end
+$var reg 5 g see_sel [4:0] $end
+$var reg 8 h set_Data [7:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module FSM_tb $end
-$var wire 4 S state [3:0] $end
-$var wire 1 T door_open_pulse $end
-$var reg 1 U clk $end
-$var reg 4 V in [3:0] $end
+$var wire 4 i state [3:0] $end
+$var wire 1 j door_open_pulse $end
+$var reg 1 k clk $end
+$var reg 4 l in [3:0] $end
 $scope module UUT $end
-$var wire 1 U clk $end
-$var wire 4 W in [3:0] $end
-$var reg 1 T door_open_pulse $end
-$var reg 4 X next_state [3:0] $end
-$var reg 4 Y state [3:0] $end
+$var wire 1 k clk $end
+$var wire 4 m in [3:0] $end
+$var wire 1 n reset $end
+$var reg 1 j door_open_pulse $end
+$var reg 4 o next_state [3:0] $end
+$var reg 4 p state [3:0] $end
 $upscope $end
 $upscope $end
 $scope module Location_tb $end
-$var wire 3 Z encoded [2:0] $end
-$var reg 4 [ in [3:0] $end
+$var wire 3 q encoded [2:0] $end
+$var reg 4 r in [3:0] $end
 $scope module UUT $end
-$var wire 1 \ and0 $end
-$var wire 1 ] and1 $end
-$var wire 1 ^ and2 $end
-$var wire 4 _ in [3:0] $end
-$var wire 1 ` not_in0 $end
-$var wire 1 a not_in1 $end
-$var wire 1 b not_in2 $end
-$var wire 1 c not_in3 $end
-$var wire 3 d encoded [2:0] $end
+$var wire 1 s and0 $end
+$var wire 1 t and1 $end
+$var wire 1 u and2 $end
+$var wire 4 v in [3:0] $end
+$var wire 1 w not_in0 $end
+$var wire 1 x not_in1 $end
+$var wire 1 y not_in2 $end
+$var wire 1 z not_in3 $end
+$var wire 3 { encoded [2:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -115,54 +161,77 @@ $dumpall
 $end
 #0
 $dumpvars
-b1 d
-1c
-1b
+b1 {
+1z
+1y
+1x
+0w
+b1 v
+0u
+0t
+1s
+b1 r
+b1 q
+b0 p
+bx o
+zn
+b0 m
+b0 l
+0k
+0j
+b0 i
+bx h
+bx g
+bx f
+bx e
+bx d
+b100000000 c
+b0 b
 1a
-0`
-b1 _
-0^
-0]
-1\
-b1 [
-b1 Z
-b0 Y
-bx X
-b0 W
+1`
+1_
+1^
+b0 ]
+0\
+0[
+0Z
+b110 Y
+0X
+0W
 b0 V
-0U
-0T
+b0 U
+bx T
 b0 S
-bx R
-bx Q
-bx P
-bx O
-bx N
-b100000000 M
-b0 L
-1K
-1J
-1I
-1H
-b0 G
-0F
-0E
-0D
-b0 C
-bx B
-b0 A
-b100 @
-b100 ?
-b0 >
+b1001100010010110100000000 R
+b10011000100101101000000000 Q
+b1100001101010000000 P
+b0 O
+b0 N
+b0 M
+b10100 L
+0K
+0J
+b0 I
+b100 H
+b100 G
+b0 F
+b100000000 E
+b0 D
+b100 C
+0B
+0A
+0@
+0?
+0>
 b0 =
-b100 <
-b0 ;
-bx :
-bx 9
+bx <
+bx ;
+b0 :
+b100 9
 b0 8
-b100 7
-b0 6
-b0 5
+b0 7
+z6
+x5
 04
 b100 3
 b10000000000000000000000000000100 2
@@ -174,7 +243,7 @@ b0 0
 b0 ,
 b100 +
 x*
-0)
+x)
 bx (
 bx '
 b0 &
@@ -185,511 +254,547 @@ b1 "
 b11 !
 $end
 #50000
-b0 X
-b0 B
-0*
-1U
+b0 T
+b1 N
+b1 O
+b1 M
+1?
+b0 o
+05
+1k
 1-
 #100000
-b0 Z
-b0 d
-1`
-0\
+b0 q
+b0 {
+1w
+0s
 b100 %
 b100 !
 b100 $
-0U
+0k
 0-
-b0 [
-b0 _
-b1000 V
-b1000 W
-b1000 A
+b0 r
+b0 v
+b1000 l
+b1000 m
+b1000 S
 1.
 b0 "
 b0 #
 #150000
-b1 6
-b1 ,
-b1 =
-b1 L
-b11000001 M
-b11 7
-0H
-1D
-b1 &
-b1 ;
-b100 @
-b11 +
-b11 <
-b11 ?
-b1 S
-b1 Y
-1T
-b1 8
-b1 >
-b1 C
-b1 G
-1)
-b1 X
-b1 B
-1U
+b1 i
+b1 p
+1j
+b10 N
+b10 O
+b10 M
+0?
+b1 o
+1k
 1-
 #200000
-0b
+0y
 b100 %
 b11 !
 b11 $
-0U
+0k
 0-
-b100 [
-b100 _
-b100 V
-b100 W
-b1001 A
+b100 r
+b100 v
+b100 l
+b100 m
+b1001 S
 b1 0
-b1 5
+b1 7
 b100 "
 b100 #
 #250000
-b10 6
-0D
-b10 ,
-b10 =
-b10 L
-b10000010 M
-b10 7
-0I
-1E
-b11 &
-b11 ;
-b100 @
-b10 +
-b10 <
-b10 ?
-b0 S
-b0 Y
-b11 8
-b11 >
+b1 8
+b11000001 E
+b11000001 c
+b1 ,
+b1 D
+b1 b
+b11 9
+0^
+1Z
+b1 &
+b1 =
+b100 H
+b11 +
 b11 C
 b11 G
-b0 X
-b11 B
-1U
+b1 :
+b1 F
+b1 U
+b1 ]
+1>
+b1 T
+b0 i
+b0 p
+b11 N
+b11 O
+b11 M
+1?
+b0 o
+1k
 1-
 #300000
-0c
-1b
-0a
+0z
+1y
+0x
 b100 %
 b10 !
 b10 $
-0U
+0k
 0-
-b1010 [
-b1010 _
-b1000 V
-b1000 W
-b1 A
+b1010 r
+b1010 v
+b1000 l
+b1000 m
+b1 S
 0.
 b1010 "
 b1010 #
 #350000
-b1 S
-b1 Y
-0)
-b1 X
-1U
+b1 i
+b1 p
+b100 N
+b100 O
+b100 M
+0?
+b1 o
+1k
 1-
 #400000
-0b
-0`
-0]
-b101 Z
-b101 d
+0y
+0w
+0t
+b101 q
+b101 {
 b100 %
 b0 !
 b0 $
-0U
+0k
 0-
-b1111 [
-b1111 _
+b1111 r
+b1111 v
 b11 0
-b11 5
-b1011 A
+b11 7
+b1011 S
 1.
 b1111 "
 b1111 #
 #450000
-b11 6
-0E
-b11 ,
+b10 8
+b10000010 E
+b10000010 c
+0Z
+b10 ,
+b10 D
+b10 b
+b10 9
+0_
+1[
+b11 &
 b11 =
-b11 L
-b1000011 M
-b1 7
-0J
-1F
-b111 &
-b111 ;
-b100 @
-b1 +
-b1 <
-b1 ?
-b11 S
-b11 Y
-b111 8
-b111 >
-b111 C
-b111 G
-1)
-b11 X
-b111 B
-1U
+b100 H
+b10 +
+b10 C
+b10 G
+b11 :
+b11 F
+b11 U
+b11 ]
+1K
+b11 T
+b11 i
+b11 p
+b101 N
+b101 O
+b101 M
+1?
+b11 o
+1k
 1-
 #500000
-1`
-b0 Z
-b0 d
+1w
+b0 q
+b0 {
 b1 !
 b1 $
 b100 %
-0U
+0k
 0-
-b1110 [
-b1110 _
+b1110 r
+b1110 v
 b1 0
-b1 5
+b1 7
 1/
-b101 A
+b101 S
 0.
 b1110 "
 b1110 #
 #550000
-b1 6
-1D
-b1 ,
-b1 =
-b1 L
-b10000001 M
-b10 7
-1I
-0F
-b101 &
-b101 ;
-b100 @
-b10 +
-b10 <
-b10 ?
-b111 S
-b111 Y
-b101 8
-b101 >
-b101 C
-b101 G
-b111 X
-b101 B
-1U
+b111 i
+b111 p
+b110 N
+b110 O
+b110 M
+0?
+b111 o
+1k
 1-
 #600000
-b11 Z
-b11 d
-1^
-1c
-0`
-0U
+b11 q
+b11 {
+1u
+1z
+0w
+0k
 0-
-b111 [
-b111 _
+b111 r
+b111 v
 b0 0
-b0 5
+b0 7
 0/
-b1000 A
+b1000 S
 1.
 #650000
-b11 6
-0D
+b11 8
+b1000011 E
+b1000011 c
+0[
 b11 ,
-b11 =
-b11 L
-b1000011 M
-b1 7
-0I
-1F
+b11 D
+b11 b
+b1 9
+0`
+1\
 b111 &
-b111 ;
-b100 @
+b111 =
+b100 H
 b1 +
-b1 <
-b1 ?
-b1111 S
-b1111 Y
-b111 8
-b111 >
-b111 C
-b111 G
-b1111 X
-b111 B
-1U
+b1 C
+b1 G
+b111 :
+b111 F
+b111 U
+b111 ]
+b111 T
+b1111 i
+b1111 p
+b111 N
+b111 O
+b111 M
+1?
+b1111 o
+1k
 1-
 #700000
-0U
+0k
 0-
 1/
-b100 A
+b100 S
 0.
 #750000
-b0 6
-b0 ,
-b0 =
-b0 L
-b10000000 M
-b10 7
-1H
-0F
-b110 &
-b110 ;
-b100 @
-b10 +
-b10 <
-b10 ?
-0T
-b110 8
-b110 >
-b110 C
-b110 G
-b110 B
-1U
+0j
+b1000 N
+b1000 O
+b1000 M
+0?
+1k
 1-
 #800000
-0U
+0k
 0-
 #850000
-0)
-1U
-1-
-#900000
-0U
-0-
-b1 0
-b1 5
-0/
-b1001 A
-1.
-#950000
-b11 6
-b11 ,
-b11 =
-b11 L
-b1000011 M
-b1 7
-0H
-1F
-b111 &
-b111 ;
-b100 @
-b1 +
-b1 <
-b1 ?
-b111 8
-b111 >
-b111 C
-b111 G
-1)
-b111 B
-1U
-1-
-#1000000
-0U
-0-
-b1000 A
-b0 0
-b0 5
-#1050000
-b101 6
-0F
-b101 M
-b0 7
-0K
-b101 ,
-b101 =
-b101 L
-14
-b1111 &
-b1111 ;
-b100 @
-b0 +
-b0 <
-b0 ?
-b1111 8
-b1111 >
-b1111 C
-b1111 G
-b1111 B
-1U
-1-
-#1100000
-1*
-0U
-0-
-b1011 A
-b11 0
-b11 5
-#1150000
-0)
-1U
-1-
-#1200000
-0U
-0-
-b1000 A
-b0 0
-b0 5
-#1250000
-1U
-1-
-#1300000
-0U
-0-
-b0 A
-0.
-#1350000
-0*
-1U
-1-
-#1400000
-0U
-0-
-b100 A
-1/
-#1450000
-b0 6
-b1000000 M
-b1 7
-1H
+b0 8
+b10000000 E
+b10000000 c
 b0 ,
-b0 =
-b0 L
-04
-b1110 &
-b1110 ;
-b1 +
-b1 <
-b1 ?
-b100 @
-b1110 8
-b1110 >
-b1110 C
-b1110 G
-1)
-b1110 B
-1U
-1-
-#1500000
-0U
-0-
-b11 0
-b11 5
-b11 A
-0/
-#1550000
-0)
-1U
-1-
-#1600000
-0U
-0-
-b10 0
-b10 5
-b110 A
-1/
-#1650000
-b10000000 M
-b10 7
-1J
-b1010 &
-b1010 ;
-b100 @
+b0 D
+b0 b
+b10 9
+1^
+0\
+b110 &
+b110 =
+b100 H
 b10 +
-b10 <
-b10 ?
-b1010 8
-b1010 >
-b1010 C
-b1010 G
-1)
-b1010 B
-1U
-1-
-#1700000
-0U
-0-
-b111 A
-b11 0
-b11 5
-#1750000
-b11000000 M
-b11 7
-1K
-b10 &
-b10 ;
-b100 @
-b11 +
-b11 <
-b11 ?
-b10 8
-b10 >
 b10 C
 b10 G
-b10 B
-1U
+b110 :
+b110 F
+b110 U
+b110 ]
+b110 T
+b1001 N
+b1001 O
+b1001 M
+1?
+1k
 1-
-#1800000
-0U
+#900000
+0k
 0-
-b101 A
 b1 0
-b1 5
-#1850000
-b100000000 M
-b100 7
-1I
-b0 &
-b0 ;
-b100 @
-b100 +
-b100 <
-b100 ?
-b0 8
-b0 >
+b1 7
+0/
+b1001 S
+1.
+#950000
+b1010 N
+b1010 O
+b1010 M
+0?
+1k
+1-
+#1000000
+0k
+0-
+b1000 S
+b0 0
+b0 7
+#1050000
+b11 8
+b1000011 E
+b1000011 c
+b11 ,
+b11 D
+b11 b
+b1 9
+0^
+1\
+b111 &
+b111 =
+b100 H
+b1 +
+b1 C
+b1 G
+b111 :
+b111 F
+b111 U
+b111 ]
+b111 T
+b1011 N
+b1011 O
+b1011 M
+1?
+1k
+1-
+#1100000
+0k
+0-
+b1011 S
+b11 0
+b11 7
+#1150000
+b1100 N
+b1100 O
+b1100 M
+0?
+1k
+1-
+#1200000
+0k
+0-
+b1000 S
+b0 0
+b0 7
+#1250000
+b101 8
+b101 E
+b101 c
+0\
+b0 9
+0a
+b101 ,
+b101 D
+b101 b
+14
+b1111 &
+b1111 =
+b100 H
+b0 +
 b0 C
 b0 G
-b0 B
-1U
+b1111 :
+b1111 F
+b1111 U
+b1111 ]
+b1111 T
+b1101 N
+b1101 O
+b1101 M
+1?
+1k
+1-
+#1300000
+15
+0k
+0-
+b0 S
+0.
+#1350000
+b1110 N
+b1110 O
+b1110 M
+0?
+05
+1k
+1-
+#1400000
+0k
+0-
+b100 S
+1/
+#1450000
+b0 8
+b1000000 E
+b1000000 c
+b1 9
+1^
+b0 ,
+b0 D
+b0 b
+04
+b1110 &
+b1110 =
+b1 +
+b1 C
+b1 G
+b100 H
+b1110 :
+b1110 F
+b1110 U
+b1110 ]
+b1110 T
+b1111 N
+b1111 O
+b1111 M
+1?
+1k
+1-
+#1500000
+0k
+0-
+b11 0
+b11 7
+b11 S
+0/
+#1550000
+b10000 N
+b10000 O
+b10000 M
+0?
+1k
+1-
+#1600000
+0k
+0-
+b10 0
+b10 7
+b110 S
+1/
+#1650000
+b10000000 E
+b10000000 c
+b10 9
+1`
+b1010 &
+b1010 =
+b100 H
+b10 +
+b10 C
+b10 G
+b1010 :
+b1010 F
+b1010 U
+b1010 ]
+b1010 T
+b10001 N
+b10001 O
+b10001 M
+1?
+1k
+1-
+#1700000
+0k
+0-
+b111 S
+b11 0
+b11 7
+#1750000
+b10010 N
+b10010 O
+b10010 M
+0?
+1k
+1-
+#1800000
+0k
+0-
+b101 S
+b1 0
+b1 7
+#1850000
+b11000000 E
+b11000000 c
+b11 9
+1_
+b1000 &
+b1000 =
+b100 H
+b11 +
+b11 C
+b11 G
+b1000 :
+b1000 F
+b1000 U
+b1000 ]
+b1000 T
+b10011 N
+b10011 O
+b10011 M
+1?
+1k
 1-
 #1900000
-0U
+0k
 0-
 b0 0
-b0 5
-b0 A
+b0 7
+b0 S
 0/
 #1950000
-0)
-1U
+b10100 N
+b10100 O
+b10100 M
+0?
+1k
 1-
 #2000000
-0U
+0k
 0-
 #2050000
-1U
+0>
+b10101 N
+b10101 O
+b10101 M
+1?
+1k
 1-
 #2100000
-0U
+0k
 0-
 #2150000
-1U
+b10110 N
+b10110 O
+b10110 M
+0?
+1k
 1-
 #2200000
-0U
+0k
 0-

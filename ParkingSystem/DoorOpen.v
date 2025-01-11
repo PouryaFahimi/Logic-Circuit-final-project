@@ -6,6 +6,8 @@ module DoorOpen (
     output reg  LED         // LED output
 );
 
+  initial LED = 0;
+
   // Parameters for the number of clock cycles to flash
   parameter FLASH_COUNT = 20;
 

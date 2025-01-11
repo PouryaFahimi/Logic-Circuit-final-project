@@ -12,10 +12,6 @@ module Circuit_tb;
   wire [7:0] sev_data;
   wire [4:0] sev_sel;
 
-  integer file;
-  integer file_out;
-  integer status;
-
   Circuit UUT (
       .clk(clk),
       .entry_sensor(entry),
@@ -31,40 +27,108 @@ module Circuit_tb;
   );
 
   initial begin
-    $dumpfile("Circuit_tb.vcd");
-    $dumpvars(0, Circuit_tb);
     entry = 0;
     exit = 0;
     switch = 2'b00;
     clk = 0;
 
-    file = $fopen("input.txt", "r");
-    file_out = $fopen("output.txt", "w");
-    if (file == 0) begin
-      $display("Error: Failed to open file.");
-      $finish;
-    end
+    #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b01;
+	 #100;
+	 
+	 entry = 0;
+    exit = 0;
+    switch = 2'b01;
+	 #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b11;
+	 #100;
+	 
+	 entry = 0;
+    exit = 1;
+    switch = 2'b01;
+	 #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 0;
+    exit = 1;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 0;
+    exit = 1;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b01;
+	 #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b11;
+	 #100;
+	 
+	 entry = 1;
+    exit = 0;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 0;
+    exit = 0;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 0;
+    exit = 1;
+    switch = 2'b00;
+	 #100;
+	 
+	 entry = 0;
+    exit = 0;
+    switch = 2'b11;
+	 #100;
+	 
+	 entry = 0;
+    exit = 1;
+    switch = 2'b10;
+	 #100;
+	 
+	 entry = 0;
+    exit = 1;
+    switch = 2'b11;
+	 #100;
+	 
+	 entry = 0;
+    exit = 1;
+    switch = 2'b01;
+	 #100;
+	 
+	 entry = 0;
+    exit = 0;
+    switch = 2'b00;
+	 #100;
 
-    while (!$feof(
-        file
-    )) begin
-      status = $fscanf(file, "%1b %1b %1b %1b\n", entry, exit, switch[1], switch[0]);
-      if (status == 4) begin
-        #100;
-        $fwrite(file_out, "%b [%d,%d] %0s%0s\n", state, capacity, best_place,
-                open ? "Open Door " : "", full ? "Full" : "");
-
-
-      end else begin
-        $display("Error: File format incorrect or incomplete data.");
-        $finish;
-      end
-    end
-
-    $fclose(file);
-    $fclose(file_out);
-
-    #200 $finish;
   end
 
   always begin

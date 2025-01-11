@@ -34,7 +34,7 @@ module Circuit (
       .in({entry_sensor, exit_sensor, switch}),
       .reset(reset),
       .state(state),
-      .door_open_pulse(door_trigger)
+      .door_open_pulse(door_open_trigger)
   );
 
   DoorOpen door_open_flasher (
@@ -54,7 +54,7 @@ module Circuit (
   /*** fix later ***/
   wire full_temp;
   and (full_temp, state[0], state[1], state[2], state[3]);
-  and #50 (full_trigger, full_temp, entry_sensor, ~exit_sensor);
+  and #50 (full_light, full_temp, entry_sensor, ~exit_sensor);
 
   FullLight full_light_flasher (
       .clk_40MHz(clk_40MHz),
