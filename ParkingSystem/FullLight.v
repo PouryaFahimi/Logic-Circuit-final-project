@@ -15,13 +15,18 @@ module FullLight (
   reg [3:0] counter = 0;  // Counter for flash cycles
   reg       flashing = 0;  // Indicates if flashing is active
   reg       trigger_latched = 0;  // Latches trigger detection at 40MHz
+  reg       trigger_processed = 0; // Indicates that the trigger has been processed
 
   // Trigger detection logic (using 40MHz clock)
   always @(posedge clk_40MHz or posedge reset) begin
     if (reset) begin
       trigger_latched <= 0;
-    end else if (trigger) begin
-      trigger_latched <= 1;  // Detect trigger pulse
+      trigger_processed <= 0;
+    end else if (trigger && !trigger_processed) begin
+      trigger_latched <= 1;      // Latch the trigger
+      trigger_processed <= 1;    // Mark the trigger as processed
+    end else begin
+      trigger_latched <= 0;      // Clear the latch after detection
     end
   end
 
@@ -32,12 +37,11 @@ module FullLight (
       counter <= 0;
       flashing <= 0;
       LED <= 0;
-    end else if (trigger_latched) begin
+    end else if (trigger_latched && !flashing) begin
       // On trigger, start a new flashing process
       counter <= FLASH_COUNT;
       flashing <= 1;
       LED <= 1;
-      trigger_latched <= 0;  // Clear the latch once the flashing process starts
     end else if (flashing) begin
       // Continue flashing if active
       if (counter > 1) begin

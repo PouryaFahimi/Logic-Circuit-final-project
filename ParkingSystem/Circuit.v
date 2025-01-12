@@ -67,8 +67,10 @@ module Circuit (
 
   /*** fix later ***/
   wire full_temp;
+  wire full_light_temp;
   and (full_temp, state[0], state[1], state[2], state[3]);
-  and #50 (full_light, full_temp, db_entry, ~db_exit);
+  and (full_light_temp, full_temp, db_entry, ~db_exit);
+  and (full_light, 1'b1, full_light_temp);
 
   FullLight full_light_flasher (
       .clk_40MHz(clk_40MHz),
