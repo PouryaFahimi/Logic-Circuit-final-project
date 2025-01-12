@@ -1,7 +1,7 @@
 module FSM (
     input  wire       clk,             // Clock signal
     input  wire [3:0] in,              // 4-bit input: {EnterSensor, ExitSensor, ExitPlace[1:0]}
-    input reset,
+    input             reset,
     output reg  [3:0] state,           // 4-bit state representing the parking spots
     output reg        door_open_pulse  // Pulse for door open LED
 );
@@ -12,18 +12,20 @@ module FSM (
     door_open_pulse = 1'b0;     // Door open LED initially off
   end
 
-reg [3:0] next_state; // Internal signal to store the next state
+  reg [3:0] next_state; // Internal signal to store the next state
 
   always @(posedge clk or posedge reset) begin
     if (reset) begin
-      state = 4'b0000;
+      state <= 4'b0000;         // Reset state
+      door_open_pulse <= 1'b0; // Reset door pulse
     end else begin
+      // Default assignments
+      next_state = state;      // Use blocking for the internal signal `next_state`
 
-      next_state = state;   // Default next state is the current state
-
-      case (in[3:2])  // Check the input format
-        2'b10: begin  // Enter sensor triggered, Exit sensor not triggered
-          if (state != 4'b1111) begin  // Parking not full
+      // Determine the next state based on inputs
+      case (in[3:2])           // Check the input format
+        2'b10: begin           // Enter sensor triggered, Exit sensor not triggered
+          if (state != 4'b1111) begin // Parking not full
             // Find the first empty parking spot (rightmost 0 becomes 1)
             case (state)
               4'b0000: next_state = 4'b0001;
@@ -46,7 +48,7 @@ reg [3:0] next_state; // Internal signal to store the next state
           end
         end
 
-        2'b01: begin  // Exit sensor triggered, Enter sensor not triggered
+        2'b01: begin // Exit sensor triggered, Enter sensor not triggered
           // Check the exit place validity and remove the car
           case (in[1:0])  // ExitPlace
             2'b00: if (state[0]) next_state = state & 4'b1110;  // Exit from spot 0
@@ -60,15 +62,14 @@ reg [3:0] next_state; // Internal signal to store the next state
         default: next_state = state; // No valid input, keep current state
       endcase
 
-      // Update the state at each clock cycle
+      // Update state and door pulse
       if (state != next_state) begin
         door_open_pulse <= 1'b1; // Generate the pulse
       end else begin
         door_open_pulse <= 1'b0; // No state change, no pulse
       end
-      
-      state <= next_state; // Assign the next state to the current state
+
+      state <= next_state; // Update state using non-blocking assignment
     end
-    
   end
 endmodule
