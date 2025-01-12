@@ -59,57 +59,45 @@ module Circuit (
       .LED(door_open_light)
   );
 
-  /*** fix later ***/
-  and (parking_slots[0], 1'b1, state[0]);
-  and (parking_slots[1], 1'b1, state[1]);
-  and (parking_slots[2], 1'b1, state[2]);
-  and (parking_slots[3], 1'b1, state[3]);
+  /*** Parking slots representation ***/
+  assign parking_slots[0] = state[0];
+  assign parking_slots[1] = state[1];
+  assign parking_slots[2] = state[2];
+  assign parking_slots[3] = state[3];
 
-  /*** fix later ***/
+  /*** Full logic ***/
+  // Temporary signal for full state detection
   wire full_temp;
-  wire full_light_temp;
-  and (full_temp, state[0], state[1], state[2], state[3]);
-  and (full_light_temp, full_temp, db_entry, ~db_exit);
-  and (full_light, 1'b1, full_light_temp);
+  assign full_temp = &state;  // True when all parking slots are full
 
+  // Trigger signal for the FullLight module
+  assign full_trigger = full_temp & db_entry & ~db_exit;
+
+  // FullLight flasher
+  wire full_light_signal;
   FullLight full_light_flasher (
       .clk_40MHz(clk_40MHz),
       .clk_1Hz(clk_1Hz),
       .trigger(full_trigger),
       .reset(reset),
-      .LED(full_light)
+      .LED(full_light_signal)
   );
 
+  // Use the full_light_signal as the output for full_light
+  assign full_light = full_light_signal;
 
-  wire [2:0] temp_cap;
-
+  /*** Capacity and Best Place ***/
   Capacity cap (
-      .in (state),
+      .in(state),
       .out(capacity)
   );
-
-
-  wire [2:0] temp_loc;
 
   Location loc (
       .in(state),
       .encoded(best_place)
   );
 
-  and (
-      temp_cap[0], 1'b1, capacity[0]
-  ), (
-      temp_cap[1], 1'b1, capacity[1]
-  ), (
-      temp_cap[2], 1'b1, capacity[2]
-  ), (
-      temp_loc[0], 1'b1, best_place[0]
-  ), (
-      temp_loc[1], 1'b1, best_place[1]
-  ), (
-      temp_loc[2], 1'b1, best_place[2]
-  );
-
+  /*** Data for Seven Segment Display ***/
   reg [11:0] data;
 
   always @(*) begin
@@ -117,8 +105,8 @@ module Circuit (
     data = 12'b0;
 
     // Assign values to specific bits
-    data[2:0] = temp_loc;  // Location information
-    data[8:6] = temp_cap;  // Capacity information
+    data[2:0] = best_place;  // Location information
+    data[8:6] = capacity;    // Capacity information
   end
 
   seven_segment_display sev_seg (
