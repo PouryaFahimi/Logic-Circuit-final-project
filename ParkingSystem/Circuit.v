@@ -25,13 +25,27 @@ module Circuit (
       .clk_1Hz(clk_1Hz)
   );
 
+  wire db_entry, db_exit;
+  Debouncer en_b (
+    .clk(clk),
+    .reset_n(reset),
+    .button(entry_sensor),
+    .debounce(db_entry)
+  );
+  Debouncer ex_b (
+    .clk(clk),
+    .reset_n(reset),
+    .button(exit_sensor),
+    .debounce(db_exit)
+  );
+
 
   wire [3:0] state;
   wire door_open_trigger, full_trigger;
 
   FSM fsm (
       .clk(clk_40MHz),
-      .in({entry_sensor, exit_sensor, switch}),
+      .in({db_entry, db_exit, switch}),
       .reset(reset),
       .state(state),
       .door_open_pulse(door_open_trigger)
@@ -54,7 +68,7 @@ module Circuit (
   /*** fix later ***/
   wire full_temp;
   and (full_temp, state[0], state[1], state[2], state[3]);
-  and #50 (full_light, full_temp, entry_sensor, ~exit_sensor);
+  and #50 (full_light, full_temp, db_entry, ~db_exit);
 
   FullLight full_light_flasher (
       .clk_40MHz(clk_40MHz),
