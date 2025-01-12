@@ -6,17 +6,17 @@ module Debouncer(
 );
     reg [2:0] shift_reg;
 
-    always @(posedge clk or negedge reset) begin
-        if (!reset) begin
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
             shift_reg <= 3'b111;
-            clean_signal <= 0;
+            debounce <= 0;
         end else begin
-            shift_reg <= {shift_reg[1:0], noisy_signal};
+            shift_reg <= {shift_reg[1:0], button};
             if (shift_reg == 3'b000) begin
-                clean_signal <= 1;
+                debounce <= 1;
 					 shift_reg <= 3'b111;
             end else if (shift_reg != 3'b000) begin
-                clean_signal <= 0;
+                debounce <= 0;
             end
         end
     end
